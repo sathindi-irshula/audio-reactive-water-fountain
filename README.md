@@ -1,4 +1,4 @@
-# 4-Channel Audio-Reactive Solenoid Water Fountain
+[# 4-Channel Audio-Reactive Solenoid Water Fountain
 
 A real-time hydraulic projection installation that translates live multi-channel audio into physical water ripples projected on screen during the live performance of *"Strums and Verses on Sapumal Flowers"*.
 
@@ -16,3 +16,4 @@ Developed in collaboration with **Devin Nimthaka** (TouchDesigner DSP & Python I
 - `src/arduino/` : Embedded C++ receiver sketch.
 - `src/touchdesigner/` : Python script for manual diagnostic hardware testing.
 - `1 project circuit.drawio.png` : System hardware schematics and circuit topology.
+](https://github.com/sathindi-irshula/audio-reactive-water-fountain/blob/main/docs/circuit.drawio.png)
