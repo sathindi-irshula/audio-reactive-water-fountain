@@ -1,28 +1,63 @@
-# 4-Channel Audio-Reactive Solenoid Water Fountain (Phase 1)
+# 4-Channel Audio-Reactive Solenoid Water Fountain
 
-A real-time hydraulic projection installation that translates live multi-channel audio into physical water ripples projected on screen during the live performance of *"Strums and Verses on Sapumal Flowers"*.
+An interactive hydraulic projection installation that translates live multi-channel audio into physical water ripples projected on screen in real time. 
 
-Developed in collaboration with **Devin Nimthaka** (TouchDesigner DSP & Python Integration).
-
-![Circuit Diagram](docs/circuit.drawio.png)
+This repository documents **Phase 1** of the system architecture, developed for the live stage performance of *"Strums and Verses on Sapumal Flowers"*.
 
 ---
 
-## Technical Overview & Signal Architecture
+## Authors & Collaborative Roles
 
-The system converts continuous, live acoustic energy into synchronized physical water ripples, projecting these dynamic fluid mechanics back onto a display screen in real time.
+* **Sathindi Irshula:** Hardware System Architecture, Circuit Schematic Design, Hydraulic Distribution Assembly, and Embedded Arduino (C++) Firmware Development.
+* **Devin Nimthaka:** TouchDesigner DSP Network Architecture, Multi-Frequency Band Separation, Audio Spectrum CHOP Configuration, and Python Serial Automation.
+
+---
+
+## Core System Architecture & Mechanics
+
+The system operates as an end-to-end real-time loop converting acoustic frequency amplitudes into physical fluid mechanics, which are then optically magnified and projected onto a performance canvas.
 
 ```text
-[ Live Audio Performance ]
-          │
-          ▼  (Real-Time Spectrum Analysis)
-[ TouchDesigner DSP Engine ]
-          │  (Serial Output @ 115200 Baud)
-          ▼
-[ Arduino Microcontroller ]
-          │  (5V Active-LOW Opto-Isolated Signals)
-          ▼
-[ Relay Array & Solenoids ]
-          │  (12V DC High-Speed Hydraulic Actuation)
-          ▼
-[ Water Tank Ripple Formation ] ──► [ Optical Light Source ] ──► [ Real-Time Screen Projection ]
+┌─────────────────────────┐
+│ Live Audio Signal Input │
+└────────────┬────────────┘
+             │
+             ▼
+┌─────────────────────────┐
+│ TouchDesigner (Python)  │  • Real-time FFT spectrum analysis via Audio Spectrum CHOP
+│   DSP Processing Engine │  • Audio split into 4 discrete frequency channels
+└────────────┬────────────┘  • Dynamic thresholding converts amplitude peaks into triggers
+             │
+             ▼
+┌─────────────────────────┐
+│ Serial Bus (115200 Baud)│  • Low-latency raw string transmission
+└────────────┬────────────┘
+             │
+             ▼
+┌─────────────────────────┐
+│ Arduino Uno R3 (C++)    │  • High-frequency hardware serial buffer parser
+│  Embedded Controller    │  • 5V Active-LOW digital outputs (Pins 2–5)
+└────────────┬────────────┘
+             │
+             ▼
+┌─────────────────────────┐
+│ Optocoupled Relay Board │  • Optical isolation via JD-VCC rail
+│  (4-Channel Module)     │  • Prevents solenoid flyback spikes from resetting MCU
+└────────────┬────────────┘
+             │
+             ▼
+┌─────────────────────────┐
+│ 12V Solenoid Valves     │  • High-speed hydraulic actuation
+│  & Submersible Pump     │  • T-joint pressure relief loop maintains continuous pump head
+└────────────┬────────────┘
+             │
+             ▼
+┌─────────────────────────┐
+│ Water Reservoir Tank    │  • Jet impact generates overlapping transverse wave patterns
+└────────────┬────────────┘
+             │
+             ▼
+┌─────────────────────────┐
+│ Optical Refraction Path │  • Surface ripples act as dynamic fluid lenses (Snell's Law)
+│  & Screen Projection    │  • High-contrast wave shadows projected onto live display screen
+└─────────────────────────┘
