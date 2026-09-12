@@ -4,8 +4,7 @@ A real-time hydraulic projection installation that translates live multi-channel
 
 Developed in collaboration with **Devin Nimthaka** (TouchDesigner DSP & Python Integration).
 
-![Circuit Diagram](https://github.com/sathindi-irshula/audio-reactive-water-fountain/raw/main/1%20project%20circuit.drawio.png)
-
+![Circuit Diagram]https://github.com/sathindi-irshula/audio-reactive-water-fountain/commit/56600452a78f50a1c18badb19fcbaf6bfbee1c5c
 ## Hardware Architecture & Features
 - **Optocoupler Power Isolation:** External 5V supply powering `JD-VCC` isolates relay coil current from the Arduino logic board.
 - **Unified Star Grounding:** Shared ground reference across 12V, 5V, and Arduino logic rails preventing floating signal voltage.
