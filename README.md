@@ -4,7 +4,7 @@ A real-time hydraulic projection installation that translates live multi-channel
 
 Developed in collaboration with **Devin Nimthaka** (TouchDesigner DSP & Python Integration).
 
-![Circuit Diagram](docs/circuit_diagram.png)
+![Circuit Diagram](https://github.com/sathindi-irshula/audio-reactive-water-fountain/raw/main/1%20project%20circuit.drawio.png)
 
 ## Hardware Architecture & Features
 - **Optocoupler Power Isolation:** External 5V supply powering `JD-VCC` isolates relay coil current from the Arduino logic board.
@@ -15,4 +15,4 @@ Developed in collaboration with **Devin Nimthaka** (TouchDesigner DSP & Python I
 ## Repository Structure
 - `src/arduino/` : Embedded C++ receiver sketch.
 - `src/touchdesigner/` : Python script for manual diagnostic hardware testing.
-- `docs/` : Hardware schematics and system topologies.
+- `1 project circuit.drawio.png` : System hardware schematics and circuit topology.
