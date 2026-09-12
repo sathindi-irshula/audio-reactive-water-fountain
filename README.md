@@ -13,6 +13,12 @@ This repository documents **Phase 1** of the system architecture, developed for 
 
 ---
 
+## Circuit Schematic & Topology
+
+![Circuit Diagram](docs/circuit.drawio.png)
+
+---
+
 ## Core System Architecture & Mechanics
 
 The system operates as an end-to-end real-time loop converting acoustic frequency amplitudes into physical fluid mechanics, which are then optically magnified and projected onto a performance canvas.
