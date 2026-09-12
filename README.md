@@ -1,4 +1,4 @@
-# 4-Channel Audio-Reactive Solenoid Water Fountain
+# 4-Channel Audio-Reactive Solenoid Water Fountain (Phase 1)
 
 A real-time hydraulic projection installation that translates live multi-channel audio into physical water ripples projected on screen during the live performance of *"Strums and Verses on Sapumal Flowers"*.
 
@@ -6,13 +6,23 @@ Developed in collaboration with **Devin Nimthaka** (TouchDesigner DSP & Python I
 
 ![Circuit Diagram](docs/circuit.drawio.png)
 
-## Hardware Architecture & Features
-- **Optocoupler Power Isolation:** External 5V supply powering `JD-VCC` isolates relay coil current from the Arduino logic board.
-- **Unified Star Grounding:** Shared ground reference across 12V, 5V, and Arduino logic rails preventing floating signal voltage.
-- **Hydraulic Bypass Loop:** T-joint assembly maintains continuous pump recirculation during zero-valve states to protect head pressure.
-- **Zero-Latency Serial Communications:** Buffer-clearing C++ parser running on Arduino at 115200 baud handling TouchDesigner execution commands.
+---
 
-## Repository Structure
-- `src/arduino/` : Embedded C++ receiver sketch.
-- `src/touchdesigner/` : Python script for manual diagnostic hardware testing.
-- `docs/` : Hardware schematics and circuit topology (`circuit.drawio.png`).
+## Technical Overview & Signal Architecture
+
+The system converts continuous, live acoustic energy into synchronized physical water ripples, projecting these dynamic fluid mechanics back onto a display screen in real time.
+
+```text
+[ Live Audio Performance ]
+          │
+          ▼  (Real-Time Spectrum Analysis)
+[ TouchDesigner DSP Engine ]
+          │  (Serial Output @ 115200 Baud)
+          ▼
+[ Arduino Microcontroller ]
+          │  (5V Active-LOW Opto-Isolated Signals)
+          ▼
+[ Relay Array & Solenoids ]
+          │  (12V DC High-Speed Hydraulic Actuation)
+          ▼
+[ Water Tank Ripple Formation ] ──► [ Optical Light Source ] ──► [ Real-Time Screen Projection ]
